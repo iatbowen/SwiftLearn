@@ -21,11 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.tabBar.backgroundColor = .white
         let mainVC = MainViewController()
         mainVC.title = "main"
+        let mainNav = UINavigationController(rootViewController: mainVC)
         let secondVC = UIViewController()
         secondVC.title = "second"
         let thirdVC = UIViewController()
         thirdVC.title = "third"
-        tabBarVC.viewControllers = [mainVC, secondVC, thirdVC]
+        tabBarVC.viewControllers = [mainNav, secondVC, thirdVC]
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
     }
