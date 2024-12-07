@@ -50,7 +50,7 @@ class MainViewControllerCell: UICollectionViewCell {
 
 class MainViewController: UIViewController {
     
-    var datasource: [String] = ["关键字", "其他"]
+    var datasource: [String] = ["关键字", "线程"]
     
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
