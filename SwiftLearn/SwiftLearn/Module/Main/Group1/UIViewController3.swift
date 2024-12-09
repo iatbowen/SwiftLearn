@@ -90,6 +90,16 @@ func printSum<T: Summable>(of container: T) where T.ValueType: CustomStringConve
          return elements.contains(element)
      }
  }
+ 
+ 多重约束
+ func compareTwoValues<T: Equatable & Comparable>(_ a: T, _ b: T) -> Bool {
+     return a == b
+ }
+ 
+ // 也可以用 `where` 子句编写同样的约束
+ func compareTwoValuesUsingWhere<T>(_ a: T, _ b: T) -> Bool where T: Equatable, T: Comparable {
+     return a == b
+ }
 
  3、关联类型
  关联类型用于协议中，用来定义占位符类型，这些类型在协议被具体采用时才具体化。
