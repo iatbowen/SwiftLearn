@@ -306,6 +306,11 @@ class UIViewController1 : UIViewController {
      }
  }
  
- 22、
+ 22、`@discardableResult`
+ 在 Swift 中，@discardableResult 是一个属性， 可以用来标记函数或者方法的返回值，使得编译器不会发出未使用结果的警告。
+ 这个属性非常有用，尤其是在函数的执行副作用比返回值更重要，或者当返回值在某些情况下可能被忽略的时候。
+ 
+
+
 
  */

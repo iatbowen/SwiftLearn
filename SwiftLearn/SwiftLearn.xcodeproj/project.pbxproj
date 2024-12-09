@@ -15,6 +15,8 @@
 		5461358C2C48C9EA009F856E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 5461358B2C48C9EA009F856E /* Base */; };
 		546135942C48F12B009F856E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546135932C48F12B009F856E /* MainViewController.swift */; };
 		54A1924E2D02AD2E00BB768C /* UIViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1924D2D02AD2E00BB768C /* UIViewController1.swift */; };
+		54A1B8132D069D8C00BB768C /* UIViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1B8122D069D8C00BB768C /* UIViewController2.swift */; };
+		54A1DDDA2D07123300BB768C /* UIViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1DDD92D07123300BB768C /* UIViewController3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		5461358D2C48C9EA009F856E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		546135932C48F12B009F856E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		54A1924D2D02AD2E00BB768C /* UIViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController1.swift; sourceTree = "<group>"; };
+		54A1B8122D069D8C00BB768C /* UIViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController2.swift; sourceTree = "<group>"; };
+		54A1DDD92D07123300BB768C /* UIViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				54A1924D2D02AD2E00BB768C /* UIViewController1.swift */,
+				54A1B8122D069D8C00BB768C /* UIViewController2.swift */,
+				54A1DDD92D07123300BB768C /* UIViewController3.swift */,
 			);
 			path = Group1;
 			sourceTree = "<group>";
@@ -178,9 +184,11 @@
 			files = (
 				54A1924E2D02AD2E00BB768C /* UIViewController1.swift in Sources */,
 				546135842C48C9E9009F856E /* ViewController.swift in Sources */,
+				54A1DDDA2D07123300BB768C /* UIViewController3.swift in Sources */,
 				546135802C48C9E9009F856E /* AppDelegate.swift in Sources */,
 				546135822C48C9E9009F856E /* SceneDelegate.swift in Sources */,
 				546135942C48F12B009F856E /* MainViewController.swift in Sources */,
+				54A1B8132D069D8C00BB768C /* UIViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
