@@ -42,6 +42,10 @@ class UIViewController1 : UIViewController {
  当闭包被标记为 @escaping 时，编译器会将闭包在堆（heap）上分配内存，从而确保闭包在函数返回后仍然存在。
  而非逃逸闭包则被分配在栈（stack）上，随着函数返回自动销毁。
  
+ 注意
+ 尾随闭包：当最后一个参数是闭包时，可以将这个闭包写在参数列表后面，而不是将其作为函数参数括号内的一部分
+ 
+ 
  5、操作符
  precedencegroup：定义操作符的优先级
  associativity：操作符的结合律
@@ -211,6 +215,12 @@ class UIViewController1 : UIViewController {
  - 使用实例方法或属性：lazy 属性的初始化闭包体可以访问 self 以及实例的其他成员，因为它是在实例化完全初始化后执行的。
  
  15、Optional（?）
+ Optional 是通过泛型枚举(enum)实现的：
+ enum Optional<Wrapped> {
+     case none // 对应于值不存在，类似于其他语言中的 null 或 nil。
+     case some(Wrapped) // 包含一个与 Optional 关联的值 Wrapped，表示值存在。
+ }
+
  var optionalString: String? = "Hello"
  print(optionalString) // 输出: Optional("Hello")
  optionalString = nil  // 设置为 nil
