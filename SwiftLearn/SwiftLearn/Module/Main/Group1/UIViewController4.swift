@@ -11,7 +11,24 @@ class UIViewController4: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        let p = Person()
+        p.name = "123"
+        let arr = ["key": p]
+        let p1 = arr["key"]
+        if p1?.name == p.name {
+            print("#yexiu#")
+        }
+        
+        if p1?.name?.isEmpty == true {
+            print("#yexiu#")
+        }
+        
+        
     }
+}
+
+internal class Person: NSObject {
+    var name: String?
 }
 
 /**
@@ -310,6 +327,68 @@ class UIViewController4: UIViewController {
  数组崩溃的策略: 确保程序在试图进行无效操作时立即失败，从而帮助开发者在调试阶段尽早地发现并修复错误。
  字典返回 nil 的策略: 提供一种更安全、常见的方式来检查是否存在某个键值对，这避免了额外的崩溃，并符合大多数用例期望，例如通过 nil 合并运算符 (??) 提供默认值。
  
+ 16、==和===区别
+ - ==: 用于比较两个值或对象的内容。通常需要实现 Equatable 协议来定义如何判断两个实例的内容是否相等。
+ - ===: 用于比较两个类实例是否引用同一个对象。它只适用于类类型，因为它比较的是对象的内存地址。
+ 
+ class Person {
+     var name: String
+     
+     init(name: String) {
+         self.name = name
+     }
+ }
 
+ let person1 = Person(name: "Alice")
+ let person2 = Person(name: "Alice")
+ let person3 = person1
 
+ print(person1 === person2) // 输出: false，因为它们是两个不同的实例，即使内容相同
+ print(person1 === person3) // 输出: true，因为 person3 引用了与 person1 相同的实例
+ 
+ 17、属性关键字排列顺序
+ 优先级：
+ 1）@objc 属性和 dynamic：用于将 Swift 属性暴露给 Objective-C 运行时
+ 2）访问控制：例如 public、private、internal、fileprivate。
+ 3）静态性质：例如 static、class。
+ 4）可变性：例如 final。
+ 5）所有权：例如 weak、unowned。
+ 6）生命周期或存储：例如 lazy。
+ 7）属性关键字：var 或 let。
+ 8）属性名和类型。
+ 例如：
+ dynamic public class final var observableProperty: String = ""
+ 
+ 18、方法关键字排列顺序
+ 优先级：
+ 1）@objc属性和 dynamic：用于启用动态派发，使方法在运行时可以被重写。
+ 2）访问控制：open, public, internal, fileprivate, private
+ 3）重写：override（如果在子类中重写父类的方法）
+ 4）静态和类方法：static, class
+ 5）可变性（仅在结构体和枚举中使用）：mutating
+ 6）func：函数声明关键字
+ 7）函数名和参数列表
+ 8）错误处理：throws, rethrows
+ 例如：
+ @objc dynamic public override class func exampleFunction() throws {
+     // 子类中的重写实现
+ }
+ 
+ 19、 if let 和 guard let
+ 1) 使用场景
+ - if let 更常用于需要在解包后执行一些操作并在单个代码块内处理的情况下。解包在成功时，代码会进入 if let 的代码块。
+ - guard let 通常用于在函数、方法或循环的早期退出。在解包失败时，代码会直接离开当前作用域（通常是通过 return、break或 continue）。
+ 2) 可读性
+ - if let 可以造成嵌套的结构，尤其是在多个可选值需要同时解包的情况下。
+ - guard let 可以让代码流更清晰，因为成功解包后代码会继续执行，失败则在更早处理，减少嵌套。
+ 3) 作用域
+ - 在 if let 中，解包后的值仅在 if 语句的作用域内有效。
+ - 使用 guard let 时，解包后的值在 guard 后面的整个作用域内都有效。
+ 4) 意图表达
+ - if let 暗示着解包的成功与否是两种代码路径的分支。
+ - guard let 明确表示失败的情形将会导致当前逻辑提前结束。
+ 
+ 注意点
+ - 使用 && 时，适合于简单的、互不依赖的布尔条件表达式。
+ - 使用 , 时，通常是在处理多个相关且有依赖顺序的条件，例如可选绑定和条件检查
  */

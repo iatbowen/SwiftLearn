@@ -215,7 +215,7 @@ class UIViewController1 : UIViewController {
  - 使用实例方法或属性：lazy 属性的初始化闭包体可以访问 self 以及实例的其他成员，因为它是在实例化完全初始化后执行的。
  
  15、Optional（?）
- Optional 是通过泛型枚举(enum)实现的：
+ 1) Optional 是通过泛型枚举(enum)实现的：
  enum Optional<Wrapped> {
      case none // 对应于值不存在，类似于其他语言中的 null 或 nil。
      case some(Wrapped) // 包含一个与 Optional 关联的值 Wrapped，表示值存在。
@@ -224,7 +224,7 @@ class UIViewController1 : UIViewController {
  var optionalString: String? = "Hello"
  print(optionalString) // 输出: Optional("Hello")
  optionalString = nil  // 设置为 nil
- 解包可选值
+ 2) 解包可选值
  - 强制解包:
  if optionalString != nil {
      print(optionalString!) // 强制解包，在确保非 nil 时使用
@@ -244,7 +244,7 @@ class UIViewController1 : UIViewController {
      print("Hello, \(guestName)!")
  }
  
- 链式调用
+ 3) 链式调用
  class Residence {
      var numberOfRooms = 1
  }
@@ -260,11 +260,19 @@ class UIViewController1 : UIViewController {
      print("Unable to retrieve the number of rooms.")
  }
  
- 使用 nil 合并运算符
- nil 合并运算符 (??) 提供了一种简洁的方式，当可选项为 nil 时提供一个默认值。
+ 4) 使用 nil 合并运算符
+ 合并空值运算符 (??) 提供了一种简洁的方式，当可选项为 nil 时提供一个默认值。
  let optionalName: String? = nil
  let fullName: String = optionalName ?? "Anonymous"
  print(fullName) // 输出: "Anonymous"
+ 
+ 5) 注意点
+ - 可选值与可选值比较：
+ 两个可选值都为 nil 时，被视为相等。
+ 两个可选值都非 nil 且其内部的值相等时，也被视为相等。
+
+ - 可选值与非可选值比较，
+ 如果可选值为非 nil，则 Swift 会自动解包可选值并与非可选值进行比较
 
  16、final
  Swift 中，final 关键字可以在 class、func 和 var 前修饰。表示 不可重写 可以将类或者类中的部分实现保护起来,从而避免子类破坏
