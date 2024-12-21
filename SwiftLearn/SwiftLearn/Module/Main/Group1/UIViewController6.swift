@@ -15,6 +15,12 @@ class UIViewController6: UIViewController {
 }
 
 /**
+ 
+ Swift的方法调度有3种不同方式：
+ 直接派发（Direct Dispatch）
+ 函数表派发（Table Dispatch）
+ 消息派发（Message Dispatch
+ 
  Swift底层探索（四）Swift函数调用过程的探索
  https://juejin.cn/post/7146163291096612872
  Swift 底层是怎么调度方法的
@@ -25,6 +31,11 @@ class UIViewController6: UIViewController {
  https://blog.csdn.net/qfeung/article/details/140165265
  Swift函数派发机制
  https://harryyan.github.io/2021/08/27/Swift%E5%87%BD%E6%95%B0%E6%B4%BE%E5%8F%91%E6%9C%BA%E5%88%B6/
+ 理解 Swift 中的方法派发机制 - 动态派发
+ https://juejin.cn/post/7338797433899597875
+ 
+ 
+ 
  Swift -协议protocol
  https://juejin.cn/post/7097768333029670926
  Swift-进阶 02：类、对象、属性

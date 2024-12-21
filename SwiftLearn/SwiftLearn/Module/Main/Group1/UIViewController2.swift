@@ -314,8 +314,95 @@ class ActorView: UIView {
  被 @Sendable 修饰的函数、闭包可以跨 actor 传递。
 
 
+四、死锁的可能
+ 示例 1: 交错锁（经典的问题）
+ 两个线程以不同顺序获取两个锁，容易导致死锁
 
+ let lock1 = NSLock()
+ let lock2 = NSLock()
+
+ func taskA() {
+     // Thread A acquiring lock1 first, then lock2
+     lock1.lock()
+     sleep(1) // 模拟一些工作
+     lock2.lock()
+     // 执行实际工作...
+     print("Task A is performing actions")
+     lock2.unlock()
+     lock1.unlock()
+ }
+
+ func taskB() {
+     // Thread B acquiring lock2 first, then lock1
+     lock2.lock()
+     sleep(1) // 模拟一些工作
+     lock1.lock()
+     // 执行实际工作...
+     print("Task B is performing actions")
+     lock1.unlock()
+     lock2.unlock()
+ }
+
+ DispatchQueue.global().async {
+     taskA()
+ }
+
+ DispatchQueue.global().async {
+     taskB()
+ }
+
+ // 这种场景很可能导致死锁，因为 taskA 在持有 lock1 时等待 lock2，而 taskB 则在持有 lock2 时等待 lock1
  
+ 示例 2: 重入锁（经典的问题）
+
+ let lock = NSLock()
  
+ func recursiveFunction(_ n: Int) {
+     lock.lock()
+     if n > 0 {
+         // 再次调用会尝试获取相同的锁，导致死锁
+         recursiveFunction(n - 1)
+     }
+    lock.unlock()
+ }
+
+ DispatchQueue.global().async {
+     recursiveFunction(3)
+ }
  
+ // NSLock 换成 NSRecursiveLock，即可解决问题
+
+ 示例 3: 循环等待
+ 如果多个线程通过队列或信号互相等待，也可能导致死锁：
+ let queueA = DispatchQueue(label: "queueA")
+ let queueB = DispatchQueue(label: "queueB")
+
+ queueA.async {
+     queueB.sync {
+         print("Queue A working on Queue B")
+     }
+ }
+
+ queueB.async {
+     queueA.sync {
+         print("Queue B working on Queue A")
+     }
+ }
+
+ // queueA 等待 queueB，同时 queueB 等待 queueA，两个任务彼此都不能向前推进，因为都在等待对方释放资源，这会导致死锁
+ 
+ 示例 4: 嵌套的同步任务
+ 
+ let serialQueue = DispatchQueue(label: "com.example.serialQueue")
+
+ serialQueue.async {
+     print("Task 1 started")
+     // 嵌套的同步调用导致死锁
+     serialQueue.sync {
+         print("Task 2 started") // 这个任务永远不能运行
+     }
+     print("Task 1 ended")  // 永远不会执行到这里
+ }
+ 
+ 在一个串行队列中，嵌套同步任务的调用可能导致死锁。这可能发生在一个任务试图等待同一个队列中的另一个任务完成，但由于队列是串行的，第二个任务无法被调度执行。
  */

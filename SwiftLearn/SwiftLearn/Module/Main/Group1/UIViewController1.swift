@@ -266,7 +266,18 @@ class UIViewController1 : UIViewController {
  let fullName: String = optionalName ?? "Anonymous"
  print(fullName) // 输出: "Anonymous"
  
- 5) 注意点
+ 5) 可选 Collection 判空
+ extension Optional where Wrapped: Collection {
+     var isNilOrEmpty1: Bool {
+         return self?.isEmpty ?? true
+     }
+     var isNilOrEmpty2: Bool {
+         guard let collection = self else { return true }
+         return collection.isEmpty
+     }
+ }
+ 
+ 6) 注意点
  - 可选值与可选值比较：
  两个可选值都为 nil 时，被视为相等。
  两个可选值都非 nil 且其内部的值相等时，也被视为相等。

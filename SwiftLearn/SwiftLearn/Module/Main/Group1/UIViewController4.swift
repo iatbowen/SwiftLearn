@@ -11,24 +11,7 @@ class UIViewController4: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        let p = Person()
-        p.name = "123"
-        let arr = ["key": p]
-        let p1 = arr["key"]
-        if p1?.name == p.name {
-            print("#yexiu#")
-        }
-        
-        if p1?.name?.isEmpty == true {
-            print("#yexiu#")
-        }
-        
-        
     }
-}
-
-internal class Person: NSObject {
-    var name: String?
 }
 
 /**
