@@ -285,6 +285,11 @@ class UIViewController4: UIViewController {
      print("Error occurred:", error)
  }
  
+ 3）内部布局
+ - 一个字节存储成员值
+ - N个字节存储关联值 (N 取占用内存最大的关联值)
+ - 关联值只会存在一个case，多次设置生效最后一次
+ 
  12、什么是可选链？
  可选链是一个调用和查询可选属性、方法和下标的过程，它可能为 nil ：
  - 如果可选项包含值，属性、方法或者下标的调用成功；

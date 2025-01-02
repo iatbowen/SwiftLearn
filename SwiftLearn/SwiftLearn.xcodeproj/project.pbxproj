@@ -20,6 +20,7 @@
 		54A1924E2D02AD2E00BB768C /* UIViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1924D2D02AD2E00BB768C /* UIViewController1.swift */; };
 		54A1B8132D069D8C00BB768C /* UIViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1B8122D069D8C00BB768C /* UIViewController2.swift */; };
 		54A1DDDA2D07123300BB768C /* UIViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1DDD92D07123300BB768C /* UIViewController3.swift */; };
+		54B99A9C2D26733B005D6A5E /* UIViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B99A9B2D26733B005D6A5E /* UIViewController7.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		54A1924D2D02AD2E00BB768C /* UIViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController1.swift; sourceTree = "<group>"; };
 		54A1B8122D069D8C00BB768C /* UIViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController2.swift; sourceTree = "<group>"; };
 		54A1DDD92D07123300BB768C /* UIViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController3.swift; sourceTree = "<group>"; };
+		54B99A9B2D26733B005D6A5E /* UIViewController7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController7.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				54A1039E2D0723DA00BB768C /* UIViewController4.swift */,
 				548D87E02D0939570027960A /* UIViewController5.swift */,
 				548D87E22D0965230027960A /* UIViewController6.swift */,
+				54B99A9B2D26733B005D6A5E /* UIViewController7.swift */,
 			);
 			path = Group1;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				548D87E12D0939570027960A /* UIViewController5.swift in Sources */,
 				546135822C48C9E9009F856E /* SceneDelegate.swift in Sources */,
 				546135942C48F12B009F856E /* MainViewController.swift in Sources */,
+				54B99A9C2D26733B005D6A5E /* UIViewController7.swift in Sources */,
 				54A1B8132D069D8C00BB768C /* UIViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
