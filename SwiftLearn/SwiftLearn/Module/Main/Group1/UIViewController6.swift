@@ -20,7 +20,7 @@ class UIViewController6: UIViewController {
  函数表派发（Table Dispatch）
  消息派发（Message Dispatch）
  1. 派发方式：
-                          直接派发           函数表         消息转发
+                          直接派发           函数表         消息派发
  值类型                    所有方法            N/A            N/A
  协议                     extension         主体初始化        N/A
  类                extension(final，static) 主体初始化     @objc+dynamic
