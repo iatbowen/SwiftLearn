@@ -384,4 +384,13 @@ class UIViewController4: UIViewController {
  - 使用 , 时，通常是在处理多个相关且有依赖顺序的条件，例如可选绑定和条件检查
  - if 语句只能用来检查布尔类型的条件
  
+ 20、Objective-C block   和  Swift closure
+ 对比项                        Objective-C block                                  Swift closure
+ 实现形式         C 结构体（函数指针 + 捕获环境）    Swift 对象（堆上结构 + 捕获环境）
+ 默认捕获                            值捕获                             值捕获（值类型）或引用捕获（引用类型）
+ 修改外部变量              需加 __block                         自动包装成 box，可直接修改
+ 生命周期管理          手动 copy（栈→堆）                 ARC 自动管理
+ 捕获对象         直接强引用（需手动 [weak self]）   强引用（需显式 [weak self]）
+ 执行上下文           C 层（Block_runtime）              Swift runtime
+ 
  */
